@@ -2,11 +2,11 @@ import Tour from "./Tour";
 
 const Tours = ({ tours }) => {
   return (
-    <div>
+    <section className="tours">
       {tours.map((tour) => (
         <Tour key={tour.id} {...tour} />
       ))}
-    </div>
+    </section>
   );
 };
 export default Tours;
