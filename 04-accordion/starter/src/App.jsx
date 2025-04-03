@@ -1,7 +1,10 @@
+import Questions from "./components /Questions";
+
 const App = () => {
   return (
     <div>
-      <h2>Accordion Starter</h2>;
+      {/* <h1>Frequently Asked Questions</h1> */}
+      <Questions />
     </div>
   );
 };
