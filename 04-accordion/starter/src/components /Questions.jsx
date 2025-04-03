@@ -1,20 +1,25 @@
 import Question from "./Question";
 import { useState } from "react";
-import data from "../data";
 
-const Questions = () => {
-  const [questions, setQuestions] = useState(data);
+const Questions = ({ questions }) => {
   const [activeId, setActiveId] = useState(null);
 
   //if a current answer is selected the rest should show the questions
   const toggleQuestion = (id) => {
-    setActiveId((prev) => (prev.id === id ? null : id));
+    setActiveId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <article>
+    <article className="container">
       {questions.map((question) => {
-        return <Question key={question.id} {...question} />;
+        return (
+          <Question
+            key={question.id}
+            {...question}
+            isActive={activeId === question.id}
+            toggleQuestion={() => toggleQuestion(question.id)}
+          />
+        );
       })}
     </article>
   );
