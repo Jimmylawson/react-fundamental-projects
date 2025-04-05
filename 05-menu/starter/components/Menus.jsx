@@ -2,11 +2,11 @@ import React from "react";
 import Menu from "./Menu";
 const Menus = ({ menus }) => {
   return (
-    <article>
+    <div className="section-center">
       {menus.map((item) => {
         return <Menu key={item.id} {...item} />;
       })}
-    </article>
+    </div>
   );
 };
 
