@@ -37,7 +37,7 @@ const App = () => {
         </form>
         <article className="lorem-text">
           {text.map((para) => {
-            return <p>{para}</p>;
+            return <p key={nanoid()}>{para}</p>;
           })}
         </article>
       </section>
