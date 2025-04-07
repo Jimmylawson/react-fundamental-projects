@@ -1,5 +1,14 @@
+import { useState } from "react";
+import Form from "./components/Form";
+
 const App = () => {
-  return <h2>Grocery Bud - Starter</h2>;
+  return (
+    <main>
+      <h2>Grocery Bud</h2>
+
+      <Form />
+    </main>
+  );
 };
 
 export default App;
