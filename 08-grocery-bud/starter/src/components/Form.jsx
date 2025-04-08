@@ -32,19 +32,26 @@ const Form = () => {
     const newItem = listItems.filter((item) => item.id !== id);
     setListItems(newItem);
   };
+
   return (
-    <section>
+    <section className="section-center">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={InputItem}
-          onChange={(e) => setInputItem(e.target.value)}
-        />
-        <button className="btn" type="submit">
-          AddItem
-        </button>
+        <h4>Grocery Bud</h4>
+        <div className="form-control">
+          <input
+            type="text"
+            className="form-input"
+            value={InputItem}
+            onChange={(e) => setInputItem(e.target.value)}
+            placeholder="e.g. eggs"
+          />
+          <button className="btn" type="submit">
+            AddItem
+          </button>
+        </div>
       </form>
-      <div>
+
+      <div className="items">
         {listItems.map((item, index) => {
           return (
             <SingleForm

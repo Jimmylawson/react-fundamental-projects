@@ -1,7 +1,7 @@
 import { useState } from "react";
 const SingleForm = ({ item, index, toggleComplete, deleteItem }) => {
   return (
-    <div>
+    <div className="single-item">
       <input
         type="checkbox"
         checked={item.completed}
@@ -10,7 +10,9 @@ const SingleForm = ({ item, index, toggleComplete, deleteItem }) => {
       <span>
         {index + 1}. {item.name}
       </span>
-      <button onClick={() => deleteItem(item.id)}>Delete</button>
+      <button onClick={() => deleteItem(item.id)} className="remove-btn btn">
+        Delete
+      </button>
     </div>
   );
 };
