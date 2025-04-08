@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SingleForm from "./SingleForm";
 import { nanoid } from "nanoid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Form = () => {
   const [InputItem, setInputItem] = useState(" ");
   const [listItems, setListItems] = useState([]);
@@ -8,7 +10,10 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!InputItem.trim()) return;
+    if (!InputItem.trim()) {
+      toast.error("Please enter a value.");
+      return;
+    }
 
     const newItem = {
       id: nanoid(),
@@ -17,6 +22,7 @@ const Form = () => {
     };
 
     setListItems((prevItems) => [...prevItems, newItem]);
+    toast.success("Item added successfully!");
     setInputItem("");
   };
 
@@ -64,6 +70,7 @@ const Form = () => {
           );
         })}
       </div>
+      <ToastContainer position="top-center" />
     </section>
   );
 };
