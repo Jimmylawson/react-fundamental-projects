@@ -21,7 +21,11 @@ const Form = () => {
       completed: false,
     };
 
-    setListItems((prevItems) => [...prevItems, newItem]);
+    setListItems((prevItems) => {
+      const updatedList = [...prevItems, newItem];
+      localStorage.setItem("listItems", JSON.stringify([updatedList]));
+      return updatedList;
+    });
     toast.success("Item added successfully!");
     setInputItem("");
   };
@@ -70,7 +74,7 @@ const Form = () => {
           );
         })}
       </div>
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-right" />
     </section>
   );
 };
